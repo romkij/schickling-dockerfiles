@@ -24,7 +24,7 @@ if [ "$API_KEY_JWT" != "false" ]; then
   echo "Modyfing API Key support for JWT..."
   patch index.html jwt.patch
   echo "Make sure to include a security definition like this in your swagger.yaml:"
-  echo -e "securityDefinitions:\n  bearer:\n    type: apiKey\n    typename: Authorization\n    in: header"
+  echo -e "securityDefinitions:\n  bearer:\n    type: apiKey\n    name: Authorization\n    in: header"
 else
   echo "Normal API Key mode"
 fi
