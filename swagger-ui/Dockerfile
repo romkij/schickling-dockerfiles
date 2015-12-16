@@ -5,6 +5,7 @@ ENV VERSION "v2.1.3"
 ENV FOLDER "swagger-ui-2.1.3"
 ENV API_URL "http://petstore.swagger.io/v2/swagger.json"
 ENV API_KEY "**None**"
+ENV API_KEY_JWT "false"
 
 WORKDIR /app
 
@@ -15,6 +16,7 @@ RUN npm install -g http-server
 RUN apk del openssl
 
 ADD run.sh run.sh
+ADD jwt.patch jwt.patch
 
 # webserver port
 EXPOSE 80
