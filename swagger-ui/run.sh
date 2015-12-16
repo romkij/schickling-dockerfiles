@@ -2,6 +2,15 @@
 
 set -e
 
+if [ -f index.html.org ]; then
+  echo "Restoring original index.html"
+  rm index.html
+  cp index.html.org index.html
+else
+  echo "Creating backup of index.html"
+  cp index.html index.html.org
+fi
+
 if [ "$API_KEY" != "**None**" ]; then
   sed -i "s|/\*||g" index.html
   sed -i "s|\*/||g" index.html
